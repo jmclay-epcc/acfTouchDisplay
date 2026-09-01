@@ -1,9 +1,59 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <style>
+    .image {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <div id="curve-container"></div>
+
+  <img id="system1" class="image" src="systems/system1/image.png">
+  <img id="system2" class="image" src="systems/system2/india.jpg">
+
+  <script>
+    fetch("curve.svg")
+      .then(response => response.text())
+      .then(svgText => {
+
+        document.querySelector("#curve-container").innerHTML = svgText;
+
+        const path = document.querySelector("#myCurve");
+        const images = document.querySelectorAll(".image");
+
+        const length = path.getTotalLength();
+
+        images.forEach((image, i) => {
+
+          const distance =
+            (i / (images.length - 1)) * length;
+
+          const point =
+            path.getPointAtLength(distance);
+
+          image.style.left = `${point.x}px`;
+          image.style.top = `${point.y}px`;
+
+        });
+
+      });
+  </script>
 
 </body>
+
 </html>
