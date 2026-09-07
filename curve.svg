@@ -1,16 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="800"
-     height="600"
-     viewBox="0 0 800 600">
-
-    <path
-        id="sysImagePath"
-        d="M 100 300
-           C 200 100, 350 100, 400 300
-           C 450 500, 600 500, 700 300"
+    width="800px"
+    height="800px"
+    viewBox="-100 0 1500 1300">
+	<path
+        id="path1"
+        d="M 0 0 L 1500 0 M 1500 400 L 0 400 M 0 700 L 1500 700 M 1500 1000 L 0 1000 M 0 1300 L 1500 1300"
+        stroke="#FF0000"
+        stroke-width="10"
         fill="none"
-        stroke="black"
-        stroke-width="2"
     />
-
 </svg>

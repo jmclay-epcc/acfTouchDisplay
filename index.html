@@ -3,38 +3,76 @@
 
 <head>
   <style>
-    .image {
+    .system {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       transform: translate(-50%, -50%);
     }
 
-    svg {
+    .pathContainer {
       position: absolute;
-      left: 0;
-      top: 0;
+      transform: translate(200px, 200px);
     }
   </style>
 </head>
 
 <body>
 
-  <div id="curve-container"></div>
+  <div id="pathContainer" class="pathContainer">
+    <div id="curve-container" class="path"></div>
 
-  <img id="system1" class="image" src="systems/system1/image.png">
-  <img id="system2" class="image" src="systems/system2/india.jpg">
+    <img id="icldaps" class="system" src="systems/system1/image.png">
+    <img id="meikot800" class="system" src="systems/system2/india.jpg">
+    <img id="amtdap608" class="system" src="systems/system2/india.jpg">
+    <img id="meikoi860cs64" class="system" src="systems/system2/india.jpg">
+    <img id="tmccm200" class="system" src="systems/system2/india.jpg">
+    <img id="meikoi860s16" class="system" src="systems/system1/image.png">
+    <img id="crayt3d" class="system" src="systems/system2/india.jpg">
+    <img id="meikocs2" class="system" src="systems/system2/india.jpg">
+    <img id="crayj90" class="system" src="systems/system2/india.jpg">
+    <img id="crayt3e" class="system" src="systems/system2/india.jpg">
+    <img id="hitachisr2201" class="system" src="systems/system1/image.png">
+    <img id="sunfire6800" class="system" src="systems/system2/india.jpg">
+    <img id="sunfiree15k" class="system" src="systems/system2/india.jpg">
+    <img id="hpcxphase1" class="system" src="systems/system2/india.jpg">
+    <img id="hpcxphase2" class="system" src="systems/system2/india.jpg">
+    <img id="qcdoc" class="system" src="systems/system1/image.png">
+    <img id="ibmbluegene" class="system" src="systems/system2/india.jpg">
+    <img id="hpcxphase2a" class="system" src="systems/system2/india.jpg">
+    <img id="hpcxphase3" class="system" src="systems/system2/india.jpg">
+    <img id="fhpcamaxwell" class="system" src="systems/system2/india.jpg">
+    <img id="hectorphase1" class="system" src="systems/system2/india.jpg">
+    <img id="hectorphase2a" class="system" src="systems/system2/india.jpg">
+    <img id="hectorphase2b" class="system" src="systems/system2/india.jpg">
+    <img id="hectorphase3" class="system" src="systems/system2/india.jpg">
+    <img id="edim1" class="system" src="systems/system2/india.jpg">
+    <img id="diracibm" class="system" src="systems/system2/india.jpg">
+    <img id="ukrdf" class="system" src="systems/system2/india.jpg">
+    <img id="archerphase1" class="system" src="systems/system2/india.jpg">
+    <img id="archerphase2" class="system" src="systems/system2/india.jpg">
+    <img id="cirrussgi" class="system" src="systems/system2/india.jpg">
+    <img id="dirachpe" class="system" src="systems/system2/india.jpg">
+    <img id="nextgenio" class="system" src="systems/system2/india.jpg">
+    <img id="fulhame" class="system" src="systems/system2/india.jpg">
+    <img id="diracatos" class="system" src="systems/system2/india.jpg">
+    <img id="archer2" class="system" src="systems/system2/india.jpg">
+
+  </div>
 
   <script>
-    fetch("curve.svg")
+
+    const svgPathFile = "curve.svg";
+
+    fetch(svgPathFile)
       .then(response => response.text())
       .then(svgText => {
 
         document.querySelector("#curve-container").innerHTML = svgText;
 
-        const path = document.querySelector("#myCurve");
-        const images = document.querySelectorAll(".image");
+        const path = document.querySelector("#path1");
+        const images = document.querySelectorAll(".system");
 
         const length = path.getTotalLength();
 
