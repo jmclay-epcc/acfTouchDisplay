@@ -3,12 +3,17 @@
 
 <head>
   <style>
+    html * {
+    font-size: 1em;
+    }
+
     .pathContainer {
       position: absolute;
       transform: translate(-50%, -50%);
       left: 50%;
-      top: 55%;
-      width: 75vw;
+      top: 57%;
+      width: 90vw;
+      height: 90vh;
     }
 
     .background {
@@ -22,7 +27,7 @@
 
     .header {
       position: absolute;
-      transform: translate(-50%, -50%) scale(1.8);
+      transform: translate(-50%, -50%) scale(2);
       left: 50%;
       top: 10%;
       display: grid;
@@ -54,9 +59,50 @@
 
     .system {
       position: absolute;
-      width: 130px;
-      height: 130px;
+      width: 200px;
+      height: 200px;
       transform: translate(-50%, -50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    .preEPCC {
+      background-color: grey;
+    }
+    .future {
+      background-color: blue;
+    }
+
+    .systemYear {
+      display: inline;
+      font-size: 1.6em;
+      color: rgb(255, 0, 0);
+      font-family: gilroy;
+    }
+
+    .systemName {
+      display: inline;
+      font-family: gilroy;
+    }
+
+    .systemStat {
+      font-size: 0.75em;
+      font-family: gilroy;
+      font-style: italic;
+
+    }
+
+    .system img.systemImage {
+      flex: 1; /* take all the remaining height below the text */
+      min-height: 0; /* lets the image shrink instead of overflowing the box */
+      width: 100%;
+      object-fit: contain; /* scale to fit, keeping proportions */
+      margin-top: 6px;
     }
   </style>
 
@@ -81,45 +127,262 @@
   <div id="pathContainer" class="pathContainer">
     <div id="curve-container"></div>
 
-    <!-- The following img's are the systems that we want on the screen, ordered chronologically oldest to newest -->
+    <!-- The following div's are the systems that we want on the screen, ordered chronologically oldest to newest -->
 
     <!-- systems copied from old display -->
 
-    <img id="icldaps" class="system" src="systems/system1/image.png">
-    <img id="meikot800" class="system" src="systems/system2/india.jpg">
-    <img id="amtdap608" class="system" src="systems/system2/india.jpg">
-    <img id="meikoi860cs64" class="system" src="systems/system2/india.jpg">
-    <img id="tmccm200" class="system" src="systems/system2/india.jpg">
-    <img id="meikoi860s16" class="system" src="systems/system1/image.png">
-    <img id="crayt3d" class="system" src="systems/system2/india.jpg">
-    <img id="meikocs2" class="system" src="systems/system2/india.jpg">
-    <img id="crayj90" class="system" src="systems/system2/india.jpg">
-    <img id="crayt3e" class="system" src="systems/system2/india.jpg">
-    <img id="hitachisr2201" class="system" src="systems/system1/image.png">
-    <img id="sunfire6800" class="system" src="systems/system2/india.jpg">
-    <img id="sunfiree15k" class="system" src="systems/system2/india.jpg">
-    <img id="hpcxphase1" class="system" src="systems/system2/india.jpg">
-    <img id="hpcxphase2" class="system" src="systems/system2/india.jpg">
-    <img id="qcdoc" class="system" src="systems/system1/image.png">
-    <img id="ibmbluegene" class="system" src="systems/system2/india.jpg">
-    <img id="hpcxphase2a" class="system" src="systems/system2/india.jpg">
-    <img id="hpcxphase3" class="system" src="systems/system2/india.jpg">
-    <img id="fhpcamaxwell" class="system" src="systems/system2/india.jpg">
-    <img id="hectorphase1" class="system" src="systems/system2/india.jpg">
-    <img id="hectorphase2a" class="system" src="systems/system2/india.jpg">
-    <img id="hectorphase2b" class="system" src="systems/system2/india.jpg">
-    <img id="hectorphase3" class="system" src="systems/system2/india.jpg">
-    <img id="edim1" class="system" src="systems/system2/india.jpg">
-    <img id="diracibm" class="system" src="systems/system2/india.jpg">
-    <img id="ukrdf" class="system" src="systems/system2/india.jpg">
-    <img id="archerphase1" class="system" src="systems/system2/india.jpg">
-    <img id="archerphase2" class="system" src="systems/system2/india.jpg">
-    <img id="cirrussgi" class="system" src="systems/system2/india.jpg">
-    <img id="dirachpe" class="system" src="systems/system2/india.jpg">
-    <img id="nextgenio" class="system" src="systems/system2/india.jpg">
-    <img id="fulhame" class="system" src="systems/system2/india.jpg">
-    <img id="diracatos" class="system" src="systems/system2/india.jpg">
-    <img id="archer2" class="system" src="systems/system2/india.jpg">
+    <div id="icldaps" class="system preEPCC">
+      <div class="systemYear">1998</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">James Mclay</div>
+      <div class="systemStat">Approx. 40 trillion cells</div>
+      <img class="systemImage" src="systems/system1/image.png"></img>
+    </div>
+
+    <div id="meikot800" class="system preEPCC">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="amtdap608" class="system preEPCC">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="meikoi860cs64" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="tmccm200" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="meikoi860s16" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="crayt3d" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="meikocs2" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="crayj90" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="crayt3e" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hitachisr2201" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="sunfire6800" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="sunfiree15k" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hpcxphase1" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hpcxphase2" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="qcdoc" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="ibmbluegene" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hpcxphase2a" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hpcxphase3" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="fhpcamaxwell" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hectorphase1" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hectorphase2a" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hectorphase2b" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="hectorphase3" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="edim1" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="diracibm" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="ukrdf" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="archerphase1" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="archerphase2" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="cirrussgi" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="dirachpe" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="nextgenio" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="fulhame" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="diracatos" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="archer2" class="system">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
+    <div id="archer3" class="system future">
+      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">some machine</div>
+      <div class="systemStat">some stat</div>
+      <img class="systemImage" src="systems/system2/india.jpg"></img>
+    </div>
+
 
   </div>
 
@@ -127,41 +390,48 @@
   <!------- enter script world -------->
 
   <script>
-    fetch("curve.svg")
-      .then(res => res.text())
-      .then(svg => {
-        document.getElementById("curve-container").innerHTML = svg;
-        placeSystems();
-      });
+    const FIXED_COLS = null; // set to e.g. 5 to force a column count, or leave null to auto-fit
 
-    function placeSystems() {
+    function layoutSystems() {
       const container = document.getElementById("pathContainer");
-      const path = container.querySelector("#curve-container path");
-      const systems = container.querySelectorAll("img.system");
-      if (!path || systems.length === 0) return;
+      const systems = [...container.querySelectorAll("div.system")];
+      const n = systems.length;
+      if (n === 0) return;
 
-      const svg = path.ownerSVGElement;
-      const total = path.getTotalLength();
-      const ctm = path.getScreenCTM();               // path units -> screen pixels
-      const box = container.getBoundingClientRect(); // images are positioned relative to this
-      const pt = svg.createSVGPoint();
+      const W = container.clientWidth;
+      const H = container.clientHeight;
 
-      systems.forEach((img, i) => {
-        // first image at the start of the curve, last at the end
-        const dist = systems.length === 1 ? total / 2 : total * (i + 0.5) / (systems.length );
-        const p = path.getPointAtLength(dist);
+      // Pick the column count that gives the biggest square cells that still fit
+      let cols = FIXED_COLS, cell;
+      if (cols) {
+        cell = Math.min(W / cols, H / Math.ceil(n / cols));
+      } else {
+        cell = 0;
+        for (let c = 1; c <= n; c++) {
+          const size = Math.min(W / c, H / Math.ceil(n / c));
+          if (size > cell) { cell = size; cols = c; }
+        }
+      }
+      const rows = Math.ceil(n / cols);
 
-        pt.x = p.x;
-        pt.y = p.y;
-        const screen = pt.matrixTransform(ctm);
+      // Centre the whole grid inside the container
+      const offX = (W - cols * cell) / 2;
+      const offY = (H - rows * cell) / 2;
 
-        img.style.left = (screen.x - box.left) + "px";
-        img.style.top = (screen.y - box.top) + "px";
+      systems.forEach((div, i) => {
+        const row = Math.floor(i / cols);   // 0 = bottom row
+        let col = i % cols;
+        if (row % 2 === 1) col = cols - 1 - col;  // odd rows run right-to-left
+        div.style.backgroundImage = `url("${div.dataset.src}")`;
+
+        div.style.left = (offX + (col + 0.5) * cell) + "px";
+        div.style.top = (offY + (rows - 1 - row + 0.5) * cell) + "px"; // row 0 at the bottom
+        div.style.width = div.style.height = (cell * 0.8) + "px";       // 70% of a cell, so there's a gap
       });
     }
 
-    // keep everything aligned if the window size changes
-    window.addEventListener("resize", placeSystems);
+    layoutSystems();
+    window.addEventListener("resize", layoutSystems);
   </script>
 
   <!------- exit script world -------->

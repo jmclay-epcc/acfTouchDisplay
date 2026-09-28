@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/regular.otf") format("otf");
+  font-style: regular;
+}
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/regular-italic.otf") format("otf");
+  font-style: italic;
+}
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/bold.otf") format("otf");
+  font-style: bold;
+}
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/bold-italic.otf") format("otf");
+  font-style: bold italic;
+}
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/light.otf") format("otf");
+  font-style: light;
+}
+@font-face {
+  font-family: "gilroy";
+  src: url("epccfont/light-italic.otf") format("otf");
+  font-style: light italic;
+}
