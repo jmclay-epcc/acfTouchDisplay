@@ -3,25 +3,87 @@
 
 <head>
   <style>
-    .system {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-    }
-
     .pathContainer {
       position: absolute;
-      transform: translate(200px, 200px);
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 55%;
+      width: 75vw;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: yellow;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .header {
+      position: absolute;
+      transform: translate(-50%, -50%) scale(1.8);
+      left: 50%;
+      top: 10%;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      /* logo column, then title/subtitle column */
+      grid-template-rows: auto auto;
+      column-gap: 1rem;
+      align-items: center;
+    }
+
+    .logo {
+      grid-row: 1 / span 2;
+      /* logo spans both rows */
+      grid-column: 1;
+      width: 120px;
+      /* adjust to taste */
+      height: auto;
+    }
+
+    .title {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .subtitle {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .system {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      transform: translate(-50%, -50%);
     }
   </style>
+
 </head>
 
 <body>
+  <div class="background">
+    <div class="header">
+      <img class="logo" src="epccLogo.png"></img>
+      <div class="title">
+        MACHINE HISTORY
+      </div>
+
+      <div class="subtitle">
+        Interactive hardware timeline (wip)
+      </div>
+
+    </div>
+
+  </div>
 
   <div id="pathContainer" class="pathContainer">
-    <div id="curve-container" class="path"></div>
+    <div id="curve-container"></div>
+
+    <!-- The following img's are the systems that we want on the screen, ordered chronologically oldest to newest -->
+
+    <!-- systems copied from old display -->
 
     <img id="icldaps" class="system" src="systems/system1/image.png">
     <img id="meikot800" class="system" src="systems/system2/india.jpg">
@@ -61,36 +123,48 @@
 
   </div>
 
+
+  <!------- enter script world -------->
+
   <script>
-
-    const svgPathFile = "curve.svg";
-
-    fetch(svgPathFile)
-      .then(response => response.text())
-      .then(svgText => {
-
-        document.querySelector("#curve-container").innerHTML = svgText;
-
-        const path = document.querySelector("#path1");
-        const images = document.querySelectorAll(".system");
-
-        const length = path.getTotalLength();
-
-        images.forEach((image, i) => {
-
-          const distance =
-            (i / (images.length - 1)) * length;
-
-          const point =
-            path.getPointAtLength(distance);
-
-          image.style.left = `${point.x}px`;
-          image.style.top = `${point.y}px`;
-
-        });
-
+    fetch("curve.svg")
+      .then(res => res.text())
+      .then(svg => {
+        document.getElementById("curve-container").innerHTML = svg;
+        placeSystems();
       });
+
+    function placeSystems() {
+      const container = document.getElementById("pathContainer");
+      const path = container.querySelector("#curve-container path");
+      const systems = container.querySelectorAll("img.system");
+      if (!path || systems.length === 0) return;
+
+      const svg = path.ownerSVGElement;
+      const total = path.getTotalLength();
+      const ctm = path.getScreenCTM();               // path units -> screen pixels
+      const box = container.getBoundingClientRect(); // images are positioned relative to this
+      const pt = svg.createSVGPoint();
+
+      systems.forEach((img, i) => {
+        // first image at the start of the curve, last at the end
+        const dist = systems.length === 1 ? total / 2 : total * (i + 0.5) / (systems.length );
+        const p = path.getPointAtLength(dist);
+
+        pt.x = p.x;
+        pt.y = p.y;
+        const screen = pt.matrixTransform(ctm);
+
+        img.style.left = (screen.x - box.left) + "px";
+        img.style.top = (screen.y - box.top) + "px";
+      });
+    }
+
+    // keep everything aligned if the window size changes
+    window.addEventListener("resize", placeSystems);
   </script>
+
+  <!------- exit script world -------->
 
 </body>
 
