@@ -4,7 +4,7 @@
 <head>
   <style>
     html * {
-    font-size: 1em;
+      font-size: 1em;
     }
 
     .pathContainer {
@@ -20,7 +20,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: yellow;
+      background-image: url("background.png");
       width: 100vw;
       height: 100vh;
     }
@@ -36,6 +36,7 @@
       grid-template-rows: auto auto;
       column-gap: 1rem;
       align-items: center;
+      font-family: gilroy;
     }
 
     .logo {
@@ -70,10 +71,14 @@
       flex-direction: column;
       padding: 6px;
       box-sizing: border-box;
+      border-radius: 20px;
+      filter: drop-shadow(2px 2px 4px rgb(67, 65, 65))
     }
+
     .preEPCC {
       background-color: grey;
     }
+
     .future {
       background-color: blue;
     }
@@ -97,11 +102,22 @@
 
     }
 
+    .arrow {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      line-height: 1;
+      color: #333;
+    }
+
     .system img.systemImage {
-      flex: 1; /* take all the remaining height below the text */
-      min-height: 0; /* lets the image shrink instead of overflowing the box */
+      flex: 1;
+      /* take all the remaining height below the text */
+      min-height: 0;
+      /* lets the image shrink instead of overflowing the box */
       width: 100%;
-      object-fit: contain; /* scale to fit, keeping proportions */
+      object-fit: contain;
+      /* scale to fit, keeping proportions */
       margin-top: 6px;
     }
   </style>
@@ -142,245 +158,247 @@
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="amtdap608" class="system preEPCC">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="meikoi860cs64" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="tmccm200" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="meikoi860s16" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="crayt3d" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="meikocs2" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="crayj90" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="crayt3e" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hitachisr2201" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="sunfire6800" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="sunfiree15k" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hpcxphase1" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hpcxphase2" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="qcdoc" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="ibmbluegene" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hpcxphase2a" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hpcxphase3" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="fhpcamaxwell" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hectorphase1" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hectorphase2a" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hectorphase2b" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="hectorphase3" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="edim1" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="diracibm" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="ukrdf" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="archerphase1" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="archerphase2" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="cirrussgi" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="dirachpe" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="nextgenio" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="fulhame" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="diracatos" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
     <div id="archer2" class="system">
       <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
       <div class="systemName">some machine</div>
       <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <img class="systemImage" src="systems/system2/image.png"></img>
     </div>
 
+    <!-- New additions -->
+
     <div id="archer3" class="system future">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/india.jpg"></img>
+      <div class="systemYear">20??</div> <!-- These bits of info will need to be entered manually -->
+      <div class="systemName">Deep Thought</div>
+      <div class="systemStat">Really big!</div>
+      <img class="systemImage" src="systems/system3/deepthought.png"></img>
     </div>
 
 
@@ -390,48 +408,74 @@
   <!------- enter script world -------->
 
   <script>
-    const FIXED_COLS = null; // set to e.g. 5 to force a column count, or leave null to auto-fit
 
-    function layoutSystems() {
-      const container = document.getElementById("pathContainer");
-      const systems = [...container.querySelectorAll("div.system")];
-      const n = systems.length;
-      if (n === 0) return;
+    //Claude provided me with this script, but im going to comment it myself to prove im not a dumb-dumb.  
+    
+    const FIXED_COLS = null; // This value is used to define the number of columns if that is desired.  When set to null, the script decides how many columns to use itself.  
 
-      const W = container.clientWidth;
-      const H = container.clientHeight;
+    function layoutSystems() { // This function works out who the divs should be sized and placed on the screen to form a neat grid, and then moves them into position.  
+      const container = document.getElementById("pathContainer"); // brings the div pathContainer into the script.  
+      const systems = [...container.querySelectorAll("div.system")]; // brings all of the divs with class "system" into the script.  
+      const n = systems.length; // finds the number of divs with class "system"
+      if (n === 0) return; // Quits out of the script if that number is zero (really we don't need this because, realistically, that'll never happen.  But hey its good to have error handling i guess). 
+
+      const W = container.clientWidth; // Finds the width of pathContainer
+      const H = container.clientHeight; // Finds the height of pathContainer
 
       // Pick the column count that gives the biggest square cells that still fit
-      let cols = FIXED_COLS, cell;
-      if (cols) {
-        cell = Math.min(W / cols, H / Math.ceil(n / cols));
-      } else {
-        cell = 0;
-        for (let c = 1; c <= n; c++) {
-          const size = Math.min(W / c, H / Math.ceil(n / c));
-          if (size > cell) { cell = size; cols = c; }
-        }
+      let cols = FIXED_COLS, cell; // This line declares two variables - cols and cell.  cols is the number of columns, and cell is the side-length of the grid spaces that the system divs will be arranged in (this isn't exactly the same as the final size of the system divs, as they have some spacing, but its equivalent.  Bigger cell means bigger system divs).  
+      if (cols) { // if cols is a real number (e.g. FIXED_COL is given a real-number value earlier in the script)...
+        cell = Math.min(W / cols, H / Math.ceil(n / cols)); // ... The side-length of the grid spaces is set to either w/cols, or h/(n/cols).  Whichever value is smaller is used.  
+      } else { // if col is NOT a real number (e.g. it is left undefined), then we need to work out how many columns we would need in order to fit all the system divs into pathContainer, while making them as big as we can.  
+        cell = 0; // Cell is first set to 0...
+        for (let c = 1; c <= n; c++) { // ... And then we enter a for-loop running from 1 to n, where c increments up in steps of 1 from an initial value of 1.  
+          const size = Math.min(W / c, H / Math.ceil(n / c)); // For each step in the loop we find w/c and h/(n/c), and then set size equal to the lowest of the two.  
+          if (size > cell) { cell = size; cols = c; } // If that value of size is larger than the current value of cell, we set cell = size and cols = c.  
+        } 
       }
-      const rows = Math.ceil(n / cols);
+      const rows = Math.ceil(n / cols); // Now that we have our number of columns, we can work out how many rows we need by dividing the number of system divs by the number of columns, and rounding up.  
 
-      // Centre the whole grid inside the container
+      // Centre the whole grid inside the container.  
       const offX = (W - cols * cell) / 2;
       const offY = (H - rows * cell) / 2;
 
-      systems.forEach((div, i) => {
-        const row = Math.floor(i / cols);   // 0 = bottom row
-        let col = i % cols;
-        if (row % 2 === 1) col = cols - 1 - col;  // odd rows run right-to-left
-        div.style.backgroundImage = `url("${div.dataset.src}")`;
+      // Remove arrows from the previous layout (this function runs again on resize) - realistically we don't need this line because the window will never be resized.  But again, good to have error handling.  
+      container.querySelectorAll(".arrow").forEach(a => a.remove());
 
-        div.style.left = (offX + (col + 0.5) * cell) + "px";
-        div.style.top = (offY + (rows - 1 - row + 0.5) * cell) + "px"; // row 0 at the bottom
-        div.style.width = div.style.height = (cell * 0.8) + "px";       // 70% of a cell, so there's a gap
+      const centres = []; // Defines centres as an empty array.  
+
+      systems.forEach((div, i) => { // This sets up a loop that runs over each item in the systems array (e.g. each div with class system).  The variable "div" is set equal to the div at position i in systems.  
+        const row = Math.floor(i / cols); // This line finds the row that the div should fall in.  It does this by dividing the divs position in systems by the number of columns, and then rouding that value down.  So if cols = 5, the divs 0-4 will return a row number of 0, 5-9 will return 1, etc.  
+        let col = i % cols; // This line finds the column that the div should fall in.  It does this by dividing the position of the div in systems by the number of columns, and then returning the remainder.  So if cols = 5, div 0 will return a value of 0 (0/5 = 0 with 0 remainder), div 1 will return 1 (1/5 = 0 with 1 remainder), div 5 will return 0 (5/5 = 1 with 0 remainder), etc.  
+        if (row % 2 === 1) col = cols - 1 - col;  // This line checks if the row is odd, and inverts the column value if it is (for cols = 5, 0 > 4, 1 > 3, 2 remains 2, 3 > 1, and 4 > 0).  
+
+        const x = offX + (col + 0.5) * cell; // These two lines find the central point of where the div should be placed on the screen, based off of the col and row values found earlier.  
+        const y = offY + (rows - 1 - row + 0.5) * cell;  // This line is a little different to the previous one as we want row 0 to be at the bottom.  
+        centres.push({ x, y }); // With these X and Y positions found, we store these in the ith position of centres. Once this for-loop ends, centres will be an ordered list of the positions of each div.  
+
+        div.style.left = x + "px"; // We move the div to the right x position value.  
+        div.style.top = y + "px"; // We move the div to the right y position value. 
+        div.style.width = div.style.height = (cell * 0.8) + "px";  // We set the width of the div, making it 80% the total width of the grid spacing so that there is a small gap between each box.  
       });
+
+      // One arrow between each consecutive pair of boxes
+      for (let i = 0; i < n - 1; i++) { // Starts a for-loop running from 0 to n-1, with the value of i increasing from 0 in steps of 1.  
+        const a = centres[i], b = centres[i + 1]; // Defines a as the ith entry in the centres array, and b as the following entry in the array. Im going to later refer to these as "div a" and "div b", as again centres is a list of the positions of divs.   
+        const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI; // This line finds the angle between the current and following entries in the centres array (remember, centres is essentially a list of positions)
+
+        const arrow = document.createElement("div"); // We create a new div.  
+        arrow.className = "arrow"; // We give the new div the class "arrow"
+        arrow.textContent = ">"; // We enter some next into the div - literally just a forward-facing arrow.  
+        arrow.style.left = (a.x + b.x) / 2 + "px"; // We move this arrow to sit halfway horizontally between div a and div b.  
+        arrow.style.top = (a.y + b.y) / 2 + "px"; // We move this arrow to sit halfway vertically between div a and div b.  
+        arrow.style.fontSize = (cell * 0.15) + "px"; // We set the arrows font size.  
+        arrow.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // We set the arrows rotation.  For even numbered rows, where the flow of the timeline is left to right, this once change anything, but for odd numbers rows it will flip it 180 degrees.  For the transitions between one row and the next, it will flip it 90 degrees so that it is pointing up.  
+        container.appendChild(arrow); // Finally, this line places the new div within pathContainer.  It will now display on the page. 
+      }
     }
 
-    layoutSystems();
-    window.addEventListener("resize", layoutSystems);
+    layoutSystems(); // This simply runs the function we defined earlier
+    window.addEventListener("resize", layoutSystems); // This triggers the function again if the window is resized.  
   </script>
 
   <!------- exit script world -------->
