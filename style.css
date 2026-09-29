@@ -6,9 +6,12 @@ html * {
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 57%;
+    top: 56%;
     width: 90vw;
-    height: 90vh;
+    height: 80vh;
+    border-width: 0px;
+    border-style: solid;
+    border-color: black;
 }
 
 .background {
