@@ -2,415 +2,53 @@
 <html>
 
 <head>
-  <style>
-    html * {
-      font-size: 1em;
-    }
-
-    .pathContainer {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      top: 57%;
-      width: 90vw;
-      height: 90vh;
-    }
-
-    .background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: url("background.png");
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .header {
-      position: absolute;
-      transform: translate(-50%, -50%) scale(2);
-      left: 50%;
-      top: 10%;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      /* logo column, then title/subtitle column */
-      grid-template-rows: auto auto;
-      column-gap: 1rem;
-      align-items: center;
-      font-family: gilroy;
-    }
-
-    .logo {
-      grid-row: 1 / span 2;
-      /* logo spans both rows */
-      grid-column: 1;
-      width: 120px;
-      /* adjust to taste */
-      height: auto;
-    }
-
-    .title {
-      grid-column: 2;
-      grid-row: 1;
-    }
-
-    .subtitle {
-      grid-column: 2;
-      grid-row: 2;
-    }
-
-    .system {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      transform: translate(-50%, -50%);
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      padding: 6px;
-      box-sizing: border-box;
-      border-radius: 20px;
-      filter: drop-shadow(2px 2px 4px rgb(67, 65, 65))
-    }
-
-    .preEPCC {
-      background-color: grey;
-    }
-
-    .future {
-      background-color: blue;
-    }
-
-    .systemYear {
-      display: inline;
-      font-size: 1.6em;
-      color: rgb(255, 0, 0);
-      font-family: gilroy;
-    }
-
-    .systemName {
-      display: inline;
-      font-family: gilroy;
-    }
-
-    .systemStat {
-      font-size: 0.75em;
-      font-family: gilroy;
-      font-style: italic;
-
-    }
-
-    .arrow {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      line-height: 1;
-      color: #333;
-    }
-
-    .system img.systemImage {
-      flex: 1;
-      /* take all the remaining height below the text */
-      min-height: 0;
-      /* lets the image shrink instead of overflowing the box */
-      width: 100%;
-      object-fit: contain;
-      /* scale to fit, keeping proportions */
-      margin-top: 6px;
-    }
-  </style>
-
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="fonts.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <div class="background">
-    <div class="header">
-      <img class="logo" src="epccLogo.png"></img>
+    <!-- This div contains everything that isn't the system cells and the modal.  So that is the background, and the header -->
+    <div class="header"> <!-- This div contains the three elements of the header -->
+      <img class="logo" src="logo.svg"></img>
       <div class="title">
         MACHINE HISTORY
       </div>
 
       <div class="subtitle">
-        Interactive hardware timeline (wip)
+        Interactive hardware timeline
       </div>
 
     </div>
 
   </div>
 
+  <div id="modalOverlay" class="modalOverlay">
+    <!-- This is a sort of dimming background that will appear between the modal and the rest of the page when the modal is on screen -->
+    <div id="modalBox" class="modalBox"></div> <!-- This is the modal itself -->
+  </div>
+
   <div id="pathContainer" class="pathContainer">
-    <div id="curve-container"></div>
-
-    <!-- The following div's are the systems that we want on the screen, ordered chronologically oldest to newest -->
-
-    <!-- systems copied from old display -->
-
-    <div id="icldaps" class="system preEPCC">
-      <div class="systemYear">1998</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">James Mclay</div>
-      <div class="systemStat">Approx. 40 trillion cells</div>
-      <img class="systemImage" src="systems/system1/image.png"></img>
-    </div>
-
-    <div id="meikot800" class="system preEPCC">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="amtdap608" class="system preEPCC">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="meikoi860cs64" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="tmccm200" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="meikoi860s16" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="crayt3d" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="meikocs2" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="crayj90" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="crayt3e" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hitachisr2201" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="sunfire6800" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="sunfiree15k" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hpcxphase1" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hpcxphase2" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="qcdoc" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="ibmbluegene" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hpcxphase2a" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hpcxphase3" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="fhpcamaxwell" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hectorphase1" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hectorphase2a" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hectorphase2b" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="hectorphase3" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="edim1" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="diracibm" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="ukrdf" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="archerphase1" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="archerphase2" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="cirrussgi" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="dirachpe" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="nextgenio" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="fulhame" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="diracatos" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <div id="archer2" class="system">
-      <div class="systemYear">some year</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">some machine</div>
-      <div class="systemStat">some stat</div>
-      <img class="systemImage" src="systems/system2/image.png"></img>
-    </div>
-
-    <!-- New additions -->
-
-    <div id="archer3" class="system future">
-      <div class="systemYear">20??</div> <!-- These bits of info will need to be entered manually -->
-      <div class="systemName">Deep Thought</div>
-      <div class="systemStat">Really big!</div>
-      <img class="systemImage" src="systems/system3/deepthought.png"></img>
-    </div>
-
-
+    <div id="curve-container" data-include="systems.html"></div>
+    <!-- this line pulls in data from the systems.html file -->
   </div>
 
 
   <!------- enter script world -------->
 
+  <script> // This script it taken from the internet - basically it loads the system divs in from a seperate HTML document, so that they don't all need to sit in here crowding up the place.  If you could believe it there isn't a function in HTML that just does that.  HTML not being feature-complete who'd a thunk it.  
+    async function loadIncludes() { // This function is an async - this is bcause we need to do some frustrating waiting and syncing so that the two scripts in this page run is sequence.  
+      const targets = document.querySelectorAll('[data-include]');
+      await Promise.all([...targets].map(async el => {
+        const response = await fetch(el.dataset.include);
+        if (response.ok) el.innerHTML = await response.text();
+        else console.error('Failed to load', el.dataset.include);
+      }));
+    }
+  </script>
+
   <script>
 
-    //Claude provided me with this script, but im going to comment it myself to prove im not a dumb-dumb.  
-    
     const FIXED_COLS = null; // This value is used to define the number of columns if that is desired.  When set to null, the script decides how many columns to use itself.  
 
     function layoutSystems() { // This function works out who the divs should be sized and placed on the screen to form a neat grid, and then moves them into position.  
@@ -431,7 +69,7 @@
         for (let c = 1; c <= n; c++) { // ... And then we enter a for-loop running from 1 to n, where c increments up in steps of 1 from an initial value of 1.  
           const size = Math.min(W / c, H / Math.ceil(n / c)); // For each step in the loop we find w/c and h/(n/c), and then set size equal to the lowest of the two.  
           if (size > cell) { cell = size; cols = c; } // If that value of size is larger than the current value of cell, we set cell = size and cols = c.  
-        } 
+        }
       }
       const rows = Math.ceil(n / cols); // Now that we have our number of columns, we can work out how many rows we need by dividing the number of system divs by the number of columns, and rounding up.  
 
@@ -472,10 +110,58 @@
         arrow.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // We set the arrows rotation.  For even numbered rows, where the flow of the timeline is left to right, this once change anything, but for odd numbers rows it will flip it 180 degrees.  For the transitions between one row and the next, it will flip it 90 degrees so that it is pointing up.  
         container.appendChild(arrow); // Finally, this line places the new div within pathContainer.  It will now display on the page. 
       }
+
+
     }
 
-    layoutSystems(); // This simply runs the function we defined earlier
-    window.addEventListener("resize", layoutSystems); // This triggers the function again if the window is resized.  
+    loadIncludes().then(() => { // This is async mumbojumbo.  I don't know how it works it just does.  
+      layoutSystems(); // Runs the function that we just defined.  
+      window.addEventListener("resize", layoutSystems); // Runs the function again if the window is resized (which in practise will never actually happen but hey-ho)
+    });
+  </script>
+
+  <script>
+
+    const overlay = document.getElementById("modalOverlay"); // Brings the div modalOverlay into the script.  
+    const modalBox = document.getElementById("modalBox"); // Brings the div modalBox into the script.  
+
+    function attachModalListeners() {
+      document.querySelectorAll("div.system").forEach(div => {
+        div.addEventListener("click", async () => {
+          const infoPath = div.dataset.info;
+
+          modalBox.textContent = "Loading system info... (you should probably never see this... Is the Raspberry Pi doing alright?)";   // shown briefly while the fetch is in flight
+          overlay.classList.add("open");
+
+          if (!infoPath) {
+            modalBox.textContent = "No location for the system info doc has been given.  Check systems.html!";
+            return;
+          }
+
+          try {
+            const response = await fetch(infoPath);
+            if (!response.ok) throw new Error(response.status);
+            modalBox.textContent = await response.text();
+          } catch (err) {
+            modalBox.textContent = "The file at the specificed location is bad, or maybe something else is wrong.  Check your directory!";
+            console.error("Failed to load", infoPath, err);
+          }
+        });
+      });
+    }
+
+    overlay.addEventListener("click", (e) => { // Listens for the modal overlay being clicked (which is to say, the modal is open and the user clicked off of it).  
+      if (e.target === overlay) {
+        overlay.classList.remove("open"); // Removes the overlays "open" style.  
+      }
+    });
+
+    loadIncludes().then(() => { // Async stuff.  Martian nonsense to me.  
+      layoutSystems();
+      attachModalListeners();
+      window.addEventListener("resize", layoutSystems);
+    });
+
   </script>
 
   <!------- exit script world -------->

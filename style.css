@@ -1,0 +1,150 @@
+html * {
+    font-size: 1em;
+}
+
+.pathContainer {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 57%;
+    width: 90vw;
+    height: 90vh;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("background.png");
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(2);
+    left: 50%;
+    top: 10%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* logo column, then title/subtitle column */
+    grid-template-rows: auto auto;
+    column-gap: 1rem;
+    align-items: center;
+    font-family: gilroy;
+}
+
+.logo {
+    grid-row: 1 / span 2;
+    /* logo spans both rows */
+    grid-column: 1;
+    width: 180px;
+    /* adjust to taste */
+    height: auto;
+}
+
+.title {
+    grid-column: 2;
+    grid-row: 1;
+    transform: translate(0, -20%);
+}
+
+.subtitle {
+    grid-column: 2;
+    grid-row: 2;
+    transform: translate(0, -080%);
+}
+
+.system {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    filter: drop-shadow(2px 2px 4px rgb(67, 65, 65))
+}
+
+.preEPCC {
+    background-color: rgb(178, 178, 178);
+}
+
+.future {
+    background-color: rgb(81, 154, 255)
+}
+
+.systemYear {
+    display: inline;
+    font-size: 1.6em;
+    color: rgb(255, 0, 0);
+    font-family: gilroy;
+    font-style: bold;
+}
+
+.systemName {
+    display: inline;
+    font-family: gilroy;
+}
+
+.systemStat {
+    font-size: 0.75em;
+    font-family: gilroy;
+    font-style: italic;
+
+}
+
+.arrow {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+    color: #333;
+}
+
+.systemImage {
+    position: absolute;
+    min-height: 0;
+    max-height: 80%;
+    min-width: 0;
+    max-width: 80%;
+    transform: translate(-100%, -100%);
+    top: 95%;
+    left: 95%;
+    border-radius: 8px;
+    z-index: -1;
+
+}
+
+.modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modalOverlay.open {
+    display: flex;
+}
+
+.modalBox {
+    background: white;
+    padding: 2rem;
+    width: 75vw;
+    height: 75vw;
+    overflow: auto;
+    border-radius: 8px;
+    white-space: pre-line;
+}

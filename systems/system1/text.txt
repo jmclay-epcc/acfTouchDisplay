@@ -1,8 +1,0 @@
-name: smarcher2
-yearStart: 2012
-yearEnd: 2025
-stat1: idk
-stat2: idc
-stat3: idgaf
-
-Some very interesting information about the system
