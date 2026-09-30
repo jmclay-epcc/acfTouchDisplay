@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<!-- This project was made with the assistance of AI.  I've made an effort to go through an manually comment the AI generated JS. -->
+
 <html>
 
 <head>
@@ -36,7 +39,7 @@
 
   <!------- enter script world -------->
 
-  <script> // This script it taken from the internet - basically it loads the system divs in from a seperate HTML document, so that they don't all need to sit in here crowding up the place.  If you could believe it there isn't a function in HTML that just does that.  HTML not being feature-complete who'd a thunk it.  
+  <script> // This script it taken from the internet - basically it loads the system divs in from a seperate HTML document, so that they don't all need to sit in here crowding up the place.  If you could believe it there isn't a function in HTML that just does that.  
     async function loadIncludes() { // This function is an async - this is bcause we need to do some frustrating waiting and syncing so that the two scripts in this page run is sequence.  
       const targets = document.querySelectorAll('[data-include]');
       await Promise.all([...targets].map(async el => {
@@ -72,9 +75,10 @@
         }
       }
       const rows = Math.ceil(n / cols); // Now that we have our number of columns, we can work out how many rows we need by dividing the number of system divs by the number of columns, and rounding up.  
+      const xScale = W / (cell * cols); // For certain screen sizes and system numbers (for example, 900x1400 and 36 ssytems), you can end up with a weirdly skinny grid.  This variable calculates the ratio of the width of pathContainer to the width of the grid, which we can then use to stretch the grid horizontally, so that it always fills pathContainer.  
 
       // Centre the whole grid inside the container.  
-      const offX = (W - cols * cell) / 2;
+      const offX = (W - cols * cell * xScale) / 2;
       const offY = (H - rows * cell) / 2;
 
       // Remove arrows from the previous layout (this function runs again on resize) - realistically we don't need this line because the window will never be resized.  But again, good to have error handling.  
@@ -87,7 +91,7 @@
         let col = i % cols; // This line finds the column that the div should fall in.  It does this by dividing the position of the div in systems by the number of columns, and then returning the remainder.  So if cols = 5, div 0 will return a value of 0 (0/5 = 0 with 0 remainder), div 1 will return 1 (1/5 = 0 with 1 remainder), div 5 will return 0 (5/5 = 1 with 0 remainder), etc.  
         if (row % 2 === 1) col = cols - 1 - col;  // This line checks if the row is odd, and inverts the column value if it is (for cols = 5, 0 > 4, 1 > 3, 2 remains 2, 3 > 1, and 4 > 0).  
 
-        const x = offX + (col + 0.5) * cell; // These two lines find the central point of where the div should be placed on the screen, based off of the col and row values found earlier.  
+        const x = offX + (col + 0.5) * (cell * xScale); // These two lines find the central point of where the div should be placed on the screen, based off of the col and row values found earlier.  
         const y = offY + (rows - 1 - row + 0.5) * cell;  // This line is a little different to the previous one as we want row 0 to be at the bottom.  
         centres.push({ x, y }); // With these X and Y positions found, we store these in the ith position of centres. Once this for-loop ends, centres will be an ordered list of the positions of each div.  
 
