@@ -87,7 +87,7 @@ html * {
 
 .systemYear {
     display: inline;
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: rgb(255, 0, 0);
     font-family: gilroy;
     font-weight: bold;
@@ -96,14 +96,15 @@ html * {
 .systemName {
     display: inline;
     font-family: gilroy;
-    font-size: 0.8em;
+    font-size: 0.73em;
+    font-weight: bold;
 }
 
 .systemStat {
     font-size: 0.75em;
     font-family: gilroy;
     font-style: italic;
-    font-size: 0.8em;
+    font-size: 0.7em;
 
 }
 
@@ -113,6 +114,7 @@ html * {
     pointer-events: none;
     line-height: 1;
     color: #333;
+    font-weight: bold;
 }
 
 .systemImage {
