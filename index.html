@@ -108,10 +108,8 @@
 
         const arrow = document.createElement("div"); // We create a new div.  
         arrow.className = "arrow"; // We give the new div the class "arrow"
-        arrow.textContent = ">"; // We enter some next into the div - literally just a forward-facing arrow.  
         arrow.style.left = (a.x + b.x) / 2 + "px"; // We move this arrow to sit halfway horizontally between div a and div b.  
         arrow.style.top = (a.y + b.y) / 2 + "px"; // We move this arrow to sit halfway vertically between div a and div b.  
-        arrow.style.fontSize = (cell * 0.15) + "px"; // We set the arrows font size.  
         arrow.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // We set the arrows rotation.  For even numbered rows, where the flow of the timeline is left to right, this once change anything, but for odd numbers rows it will flip it 180 degrees.  For the transitions between one row and the next, it will flip it 90 degrees so that it is pointing up.  
         container.appendChild(arrow); // Finally, this line places the new div within pathContainer.  It will now display on the page. 
       }
