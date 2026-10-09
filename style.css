@@ -20,7 +20,7 @@ html * {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("altbackground.png");
+    background-image: url("background.png");
     background-position: right;
 }
 
@@ -54,14 +54,12 @@ html * {
     grid-column: 2;
     grid-row: 1;
     transform: translate(0, -20%);
-    color: white;
 }
 
 .subtitle {
     grid-column: 2;
     grid-row: 2;
     transform: translate(0, -080%);
-    color: white;
 }
 
 .system {
@@ -180,6 +178,9 @@ html * {
 }
 
 .modalBox {
+    position: fixed;
+    font-family: gilroy;
+    font-size: 1.5em;
     background: white;
     padding: 2rem;
     width: 75vw;
@@ -187,4 +188,30 @@ html * {
     overflow: auto;
     border-radius: 8px;
     white-space: pre-line;
+}
+
+.modalTest {
+    position: absolute;
+
+}
+
+.textSkinny {
+    width: 55%;
+}
+
+.modalImage {
+  position: absolute;
+  top: 95%;
+  left: 95%;
+  transform: translate(-100%, -100%);
+  border-radius: 15px;
+  z-index: -1;
+}
+
+.imgWide {
+  width: 90%;
+}
+
+.imgTall {
+  height: 90%;
 }

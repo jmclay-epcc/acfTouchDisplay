@@ -28,7 +28,10 @@
 
   <div id="modalOverlay" class="modalOverlay">
     <!-- This is a sort of dimming background that will appear between the modal and the rest of the page when the modal is on screen -->
-    <div id="modalBox" class="modalBox"></div> <!-- This is the modal itself -->
+    <div id="modalBox" class="modalBox">
+      <div id="modalText" class="modalText"></div>
+      <img id="modalImage" class="modalImage"></img>
+    </div> <!-- This is the modal itself -->
   </div>
 
   <div id="pathContainer" class="pathContainer">
@@ -159,28 +162,49 @@
 
     const overlay = document.getElementById("modalOverlay"); // Brings the div modalOverlay into the script.  
     const modalBox = document.getElementById("modalBox"); // Brings the div modalBox into the script.  
+    const modalText = document.getElementById("modalText");
+    const modalImage = document.getElementById("modalImage");
 
     function attachModalListeners() {
-      document.querySelectorAll("div.system").forEach(div => {
+      document.querySelectorAll("div.system:not(.transition)").forEach(div => {
         div.addEventListener("click", async () => {
           const infoPath = div.dataset.info;
+          const imagePath = div.querySelector("img.systemImage").src;
 
-          modalBox.textContent = "Loading system info... (you should probably never see this... Is the Raspberry Pi doing alright?)";   // shown briefly while the fetch is in flight
+          modalText.textContent = "Loading system info... (you should probably never see this... Is the Raspberry Pi doing alright?)";   // shown briefly while the fetch is in flight
           overlay.classList.add("open");
 
           if (!infoPath) {
-            modalBox.textContent = "No location for the system info doc has been given.  Check systems.html!";
+            modalText.textContent = "No location for the system info doc has been given.  Check systems.html!";
+            return;
+          }
+
+          if (!imagePath) {
+            modalText.textContent = "This system doesn't have an image attached to it.  Check systems.html!";
             return;
           }
 
           try {
             const response = await fetch(infoPath);
             if (!response.ok) throw new Error(response.status);
-            modalBox.textContent = await response.text();
+            modalText.textContent = await response.text();
           } catch (err) {
-            modalBox.textContent = "The file at the specificed location is bad, or maybe something else is wrong.  Check your directory!";
+            modalText.textContent = "The file at the specificed location is bad, or maybe something else is wrong.  Check your directory!";
             console.error("Failed to load", infoPath, err);
           }
+
+          modalImage.classList.remove("imgWide", "imgTall");   // clear the previous image's shape
+          modalText.classList.remove("textSkinny");
+          modalImage.onload = () => {
+            if (modalImage.naturalWidth > modalImage.naturalHeight) {
+              modalImage.classList.add("imgWide");
+            } else {
+              modalImage.classList.add("imgTall");
+              modalText.classList.add("textSkinny");
+            }
+          };
+          modalImage.src = imagePath;                    // set onload before src
+
         });
       });
     }
