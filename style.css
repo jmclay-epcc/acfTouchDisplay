@@ -18,9 +18,10 @@ html * {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: url("background.png");
     width: 100vw;
     height: 100vh;
+    background-image: url("altbackground.png");
+    background-position: right;
 }
 
 .header {
@@ -46,18 +47,21 @@ html * {
     /* adjust to taste */
     height: auto;
     margin-right: 10px;
+    
 }
 
 .title {
     grid-column: 2;
     grid-row: 1;
     transform: translate(0, -20%);
+    color: white;
 }
 
 .subtitle {
     grid-column: 2;
     grid-row: 2;
     transform: translate(0, -080%);
+    color: white;
 }
 
 .system {
@@ -71,7 +75,7 @@ html * {
     background-color: white;
     padding: 8px;
     border-radius: 20px;
-    filter: drop-shadow(2px 2px 4px rgb(100, 97, 97))
+    box-shadow: 3px 3px 5px rgb(65, 65, 65, 0.6);
 }
 
 .preEPCC {
@@ -83,6 +87,7 @@ html * {
 }
 .transition {
     background-color: rgba(41, 41, 41, 0);
+    box-shadow: 0 0 0
 }
 
 .systemYear {
@@ -123,10 +128,12 @@ html * {
     font-size: 1.5em;
     font-family: gilroy;
     color: white;
+    text-align: center;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
     background-color: rgba(41, 41, 41, 0.5);
+    backdrop-filter: blur(3px);
     padding: 10px;
     border-radius: 15px;
 }
