@@ -190,7 +190,7 @@ html * {
     white-space: pre-line;
 }
 
-.modalTest {
+.modalText {
     position: absolute;
 
 }
@@ -201,17 +201,21 @@ html * {
 
 .modalImage {
   position: absolute;
-  top: 95%;
-  left: 95%;
-  transform: translate(-100%, -100%);
   border-radius: 15px;
   z-index: -1;
 }
 
 .imgWide {
-  width: 90%;
+  max-height: 50%;
+  max-width: 90%;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -100%);
 }
 
 .imgTall {
   height: 90%;
+  top: 95%;
+  left: 95%;
+  transform: translate(-100%, -100%);
 }
