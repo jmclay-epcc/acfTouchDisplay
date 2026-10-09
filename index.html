@@ -52,6 +52,38 @@
 
   <script>
 
+    // Straight lines between points, with rounded corners where the direction changes
+    function roundedPath(pts, radius) {
+      if (pts.length < 2) return "";
+      let d = `M ${pts[0].x} ${pts[0].y}`;
+
+      for (let i = 1; i < pts.length - 1; i++) {
+        const p0 = pts[i - 1], p1 = pts[i], p2 = pts[i + 1];
+
+        const v1x = p1.x - p0.x, v1y = p1.y - p0.y;
+        const v2x = p2.x - p1.x, v2y = p2.y - p1.y;
+        const len1 = Math.hypot(v1x, v1y);
+        const len2 = Math.hypot(v2x, v2y);
+
+        // Straight-through point: no corner to round
+        if (Math.abs(v1x * v2y - v1y * v2x) < 1e-6) {
+          d += ` L ${p1.x} ${p1.y}`;
+          continue;
+        }
+
+        // Start rounding a bit before the corner, finish a bit after it
+        const r = Math.min(radius, len1 / 2, len2 / 2);
+        const ax = p1.x - (v1x / len1) * r, ay = p1.y - (v1y / len1) * r;
+        const bx = p1.x + (v2x / len2) * r, by = p1.y + (v2y / len2) * r;
+
+        d += ` L ${ax} ${ay} Q ${p1.x} ${p1.y}, ${bx} ${by}`;
+      }
+
+      const last = pts[pts.length - 1];
+      d += ` L ${last.x} ${last.y}`;
+      return d;
+    }
+
     const FIXED_COLS = null; // This value is used to define the number of columns if that is desired.  When set to null, the script decides how many columns to use itself.  
 
     function layoutSystems() { // This function works out who the divs should be sized and placed on the screen to form a neat grid, and then moves them into position.  
@@ -82,9 +114,6 @@
       const offX = (W - cols * cell * xScale) / 2;
       const offY = (H - rows * cell * yScale) / 2;
 
-      // Remove arrows from the previous layout (this function runs again on resize) - realistically we don't need this line because the window will never be resized.  But again, good to have error handling.  
-      container.querySelectorAll(".arrow").forEach(a => a.remove());
-
       const centres = []; // Defines centres as an empty array.  
 
       systems.forEach((div, i) => { // This sets up a loop that runs over each item in the systems array (e.g. each div with class system).  The variable "div" is set equal to the div at position i in systems.  
@@ -101,18 +130,21 @@
         div.style.width = div.style.height = (cell * 0.8) + "px";  // We set the width of the div, making it 80% the total width of the grid spacing so that there is a small gap between each box.  
       });
 
-      // One arrow between each consecutive pair of boxes
-      for (let i = 0; i < n - 1; i++) { // Starts a for-loop running from 0 to n-1, with the value of i increasing from 0 in steps of 1.  
-        const a = centres[i], b = centres[i + 1]; // Defines a as the ith entry in the centres array, and b as the following entry in the array. Im going to later refer to these as "div a" and "div b", as again centres is a list of the positions of divs.   
-        const angle = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI; // This line finds the angle between the current and following entries in the centres array (remember, centres is essentially a list of positions)
+      // Remove the old line (this function reruns on resize)
+      const oldLine = container.querySelector("svg.timelineLine");
+      if (oldLine) oldLine.remove();
 
-        const arrow = document.createElement("div"); // We create a new div.  
-        arrow.className = "arrow"; // We give the new div the class "arrow"
-        arrow.style.left = (a.x + b.x) / 2 + "px"; // We move this arrow to sit halfway horizontally between div a and div b.  
-        arrow.style.top = (a.y + b.y) / 2 + "px"; // We move this arrow to sit halfway vertically between div a and div b.  
-        arrow.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`; // We set the arrows rotation.  For even numbered rows, where the flow of the timeline is left to right, this once change anything, but for odd numbers rows it will flip it 180 degrees.  For the transitions between one row and the next, it will flip it 90 degrees so that it is pointing up.  
-        container.appendChild(arrow); // Finally, this line places the new div within pathContainer.  It will now display on the page. 
-      }
+      const svgNS = "http://www.w3.org/2000/svg";
+      const svg = document.createElementNS(svgNS, "svg");
+      svg.setAttribute("class", "timelineLine");
+      svg.setAttribute("width", W);
+      svg.setAttribute("height", H);
+
+      const path = document.createElementNS(svgNS, "path");
+      path.setAttribute("d", roundedPath(centres, cell * 0.25));
+      path.setAttribute("stroke-width", Math.max(4, cell * 0.075));
+      svg.appendChild(path);
+      container.appendChild(svg);
 
 
     }

@@ -81,6 +81,9 @@ html * {
 .future {
     background-color: rgb(81, 154, 255)
 }
+.transition {
+    background-color: rgba(41, 41, 41, 0);
+}
 
 .systemYear {
     position: absolute;
@@ -109,21 +112,31 @@ html * {
 }
 
 .systemStat {
-    font-size: 0.75em;
     font-family: gilroy;
     font-style: italic;
     font-size: 0.7em;
     display: none; /* The system divs all have this stat attached to them, but im not sure if we actually want to use it, so adding line stops that line from being placed on the page */
 
 }
-
-.arrow {
+.transCap {
     position: absolute;
+    font-size: 1.5em;
+    font-family: gilroy;
+    color: white;
     transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: rgba(41, 41, 41, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.timelineLine {
     pointer-events: none;
-    background-color: white;
-    width : 100px;
-    height: 10px;
+    stroke: white;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill-opacity: 0;
     z-index: -1;
 }
 
