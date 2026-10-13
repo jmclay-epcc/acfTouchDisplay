@@ -180,32 +180,39 @@ html * {
 .modalBox {
     position: fixed;
     font-family: gilroy;
-    font-size: 1.5em;
     background: white;
     padding: 2rem;
     width: 75vw;
     height: 75vw;
     overflow: auto;
     border-radius: 8px;
-    white-space: pre-line;
+}
+
+.modalTitle {
+    font-size: 2em;
+    margin-block: 0.4em;
+}
+
+.modalYear {
+    font-size: 3.5em;
+    color: #F9B016;
+    font-weight: bold;
 }
 
 .modalText {
     position: absolute;
-
+    font-size: 1.5em;
+    white-space: pre-line;
 }
 
 .textSkinny {
-    width: 55%;
+    width: 50%;
 }
 
 .modalImage {
   position: absolute;
   border-radius: 15px;
   z-index: -1;
-}
-
-.imgWide {
   max-height: 50%;
   max-width: 90%;
   top: 95%;
@@ -213,8 +220,9 @@ html * {
   transform: translate(-50%, -100%);
 }
 
-.imgTall {
-  height: 90%;
+.imgSkinny {
+  max-height: 90%;
+  max-width: 45%;
   top: 95%;
   left: 95%;
   transform: translate(-100%, -100%);

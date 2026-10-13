@@ -29,6 +29,8 @@
   <div id="modalOverlay" class="modalOverlay">
     <!-- This is a sort of dimming background that will appear between the modal and the rest of the page when the modal is on screen -->
     <div id="modalBox" class="modalBox">
+      <div id="modalYear" class="modalYear"></div>
+      <div id="modalName" class="modalTitle"></div>
       <div id="modalText" class="modalText"></div>
       <img id="modalImage" class="modalImage"></img>
     </div> <!-- This is the modal itself -->
@@ -162,6 +164,8 @@
 
     const overlay = document.getElementById("modalOverlay"); // Brings the div modalOverlay into the script.  
     const modalBox = document.getElementById("modalBox"); // Brings the div modalBox into the script.  
+    const modalName = document.getElementById("modalName");
+    const modalYear = document.getElementById("modalYear");
     const modalText = document.getElementById("modalText");
     const modalImage = document.getElementById("modalImage");
 
@@ -170,7 +174,10 @@
         div.addEventListener("click", async () => {
           const infoPath = div.dataset.info;
           const imagePath = div.querySelector("img.systemImage").src;
+          
 
+          modalName.textContent = div.querySelector(".systemName").textContent;
+          modalYear.textContent = div.querySelector(".systemYear").textContent;
           modalText.textContent = "Loading system info... (you should probably never see this... Is the Raspberry Pi doing alright?)";   // shown briefly while the fetch is in flight
           overlay.classList.add("open");
 
@@ -189,17 +196,15 @@
             if (!response.ok) throw new Error(response.status);
             modalText.textContent = await response.text();
           } catch (err) {
-            modalText.textContent = "The file at the specificed location is bad, or maybe something else is wrong.  Check your directory!";
+            modalText.textContent = "The file at the specificed location is bad, or doesn't exist.  Check your directory!";
             console.error("Failed to load", infoPath, err);
           }
 
-          modalImage.classList.remove("imgWide", "imgTall");   // clear the previous image's shape
+          modalImage.classList.remove("imgSkinny");   // clear the previous image's shape
           modalText.classList.remove("textSkinny");
           modalImage.onload = () => {
-            if (modalImage.naturalWidth > modalImage.naturalHeight) {
-              modalImage.classList.add("imgWide");
-            } else {
-              modalImage.classList.add("imgTall");
+            if ((modalImage.naturalWidth * 1.1) < modalImage.naturalHeight) { // Some of the images uses are so tall and skinny that displaying them in the usual way (with their height capped at 50% the modal height) makes them very tiny on the page.  So in these cases we flip the dimension constrants, capping the width at 50% and the height at 90%, move the image to the right of the modal, and move the text to the left. Basically its what we do for the cells on the main page.   
+              modalImage.classList.add("imgSkinny");
               modalText.classList.add("textSkinny");
             }
           };
