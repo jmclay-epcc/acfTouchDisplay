@@ -26,9 +26,9 @@ html * {
 
 .header {
     position: absolute;
-    transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-50%, -50%) scale(2);
     left: 50%;
-    top: 130px;
+    top: 170px;
     display: grid;
     grid-template-columns: auto 1fr;
     /* logo column, then title/subtitle column */
