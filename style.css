@@ -2,6 +2,14 @@ html * {
     font-size: 1em;
 }
 
+body {
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+   user-select: none;
+   -webkit-user-select: none;  /* Safari, including iOS */
+}
+
 .pathContainer {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -20,8 +28,19 @@ html * {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("background.png");
-    background-position: right;
+    background-color: #F9B016;
+}
+
+.backdrop_art {
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(90deg);
+    top: 50vh;
+    left: 50vw;
+    height:100vw;
+}
+
+.background img {
+    mix-blend-mode: multiply;
 }
 
 .header {
