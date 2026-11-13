@@ -1,0 +1,1 @@
+IBM BlueGenes were very fast, power efficient systems, this one was the first BlueGene in Europe. In 2006, the BlueGene/L was the fastest supercomputer in the world, however the one in Edinburgh was not as big. It had 2048 processors, 512GB memory, and performance of 5.6 TFLOPS.

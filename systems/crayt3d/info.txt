@@ -1,0 +1,1 @@
+This was the first UK national supercomputing service, and at times was the largest T3D systems in Europe. It had 512 processors, 32GB memory, and peak performance of 76 GFLOPS.

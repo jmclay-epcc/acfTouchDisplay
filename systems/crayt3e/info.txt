@@ -1,0 +1,1 @@
+This system had 344 processors, with different sizes of memory per processor - 64, 128, or 256MB. Total system memory was about 40GB and peak performance was 310 GFLOPS.

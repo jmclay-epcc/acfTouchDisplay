@@ -1,0 +1,1 @@
+ Replaces ARCHER as the UK's National Supercomputing service. Each node is considerably bigger than its predecessor - they have two 64-core processors, so 128 cores per node, more than five times more than ARCHER's 24. The system is 23 cabinets, 5,860 nodes, 748,544 cores, and peak performance of 28 PFLOPS.

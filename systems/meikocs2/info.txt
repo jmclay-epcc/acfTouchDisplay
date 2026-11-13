@@ -1,0 +1,1 @@
+This system had 64 processors and 1GB memory. Its peak performance was 5.1GB.

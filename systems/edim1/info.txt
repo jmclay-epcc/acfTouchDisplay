@@ -1,0 +1,1 @@
+EDIM1 was a machine designed for Data Intensive Research. Its architecture was designed to balance IO performance with CPU speed. It therefore was based on commodity nodes but with fast SSDs (which were more novel at the time) in every node.

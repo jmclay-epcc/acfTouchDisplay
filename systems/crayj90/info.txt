@@ -1,0 +1,1 @@
+The Cray J90 had 2GB memory and was capable of 2 GFLOPS. It had vector processors that could execute operations on multiple pieces of data at once.

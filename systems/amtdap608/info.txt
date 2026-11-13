@@ -1,0 +1,1 @@
+1024 processors with 4 MB memory and a peak of about 60 Mflops.  

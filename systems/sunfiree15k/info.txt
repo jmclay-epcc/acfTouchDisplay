@@ -1,0 +1,1 @@
+The Sun E15K had 52 processors with 52 GB that they shared. 4 processors for users to edit an built code with, and they would run these codes on the other 48 processors. Peak performance was 94 GFLOPS.

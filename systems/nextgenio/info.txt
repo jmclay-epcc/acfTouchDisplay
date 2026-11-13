@@ -1,0 +1,13 @@
+Custom Fujitsu PRIMERGY design
+
+- System built by Fujitsu using bespoke motherboard
+- 34 compute nodes - node configuration
+    - Dual socket, 2 24-core Intel Xeon Platinum 8260M CPUs
+    - 192GB DDR4 DRAM (12 x 16GB)
+    - 3TB DCPMM (12 x 256GB)
+- Omni-Path interconnect
+    - Dual rail
+- 270TB Lustre file system
+- Total memory capacity
+    - 6.5TB DRAM
+    - 100TB NVRAM

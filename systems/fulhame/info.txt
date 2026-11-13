@@ -1,0 +1,4 @@
+HPE Apollo 70, deployed as part of the Catalyst UK programme to accelerate the adoption of Arm-based supercomputers.  
+
+- 64 compute nodes
+- 2 x 32 core Marvell ThunderX2 CPUs per node

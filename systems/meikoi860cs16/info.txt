@@ -1,0 +1,1 @@
+The T800 Transputer processors that this system was made up of was the first processor with a peak performance of 1 MFLOPS. The system was 400 processors in total, so peak performance was 400 MFLOPS. It had 400MB of memory.

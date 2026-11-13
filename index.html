@@ -12,16 +12,17 @@
 <body>
   <div class="background">
     <img class="backdrop_art" src="backgroundset/epcc_header_11.jpg"></img>
-    <div class="header"> <!-- This div contains the three elements of the header -->
-      <img class="logo" src="logo.svg"></img>
-      <div class="title">
-        MACHINE HISTORY
-      </div>
+    <div class="headerContainer">
+      <div class="header"> <!-- This div contains the three elements of the header -->
+        <img class="logo" src="logo.svg"></img>
+        <div class="title">
+          MACHINE HISTORY
+        </div>
 
-      <div class="subtitle">
-        Interactive hardware timeline
+       <div class="subtitle">
+          Interactive hardware timeline
+        </div>
       </div>
-
     </div>
 
   </div>
@@ -43,6 +44,19 @@
 
 
   <!------- enter script world -------->
+  <script>
+    function fitHeader() {
+      const box = document.querySelector(".headerContainer");
+      const header = document.querySelector(".header");
+      const scaleCap = 0.7;
+      header.style.transform = "none";                          // measure unscaled
+      const s = box.clientHeight * 0.7 / header.offsetHeight;
+      header.style.transform = `scale(${s})`;
+      header.style.transformOrigin = "top center";
+    }
+    fitHeader();
+    window.addEventListener("resize", fitHeader);
+  </script>
 
   <script> // This script it taken from the internet - basically it loads the system divs in from a seperate HTML document, so that they don't all need to sit in here crowding up the place.  If you could believe it there isn't a function in HTML that just does that.  
     async function loadIncludes() { // This function is an async - this is bcause we need to do some frustrating waiting and syncing so that the two scripts in this page run is sequence.  
