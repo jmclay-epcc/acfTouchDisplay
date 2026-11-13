@@ -208,8 +208,8 @@ body {
     font-family: gilroy;
     background: white;
     padding: 2rem;
-    width: 75vw;
-    height: 75vw;
+    width: 75vmin;
+    height: 75vmin;
     overflow: auto;
     border-radius: 8px;
 }
