@@ -227,29 +227,43 @@ body {
 
 .modalText {
     position: absolute;
+    width: 90%;
     font-size: 2em;
-    white-space: pre-line;
+    white-space: pre-wrap;
+    border-width: 0px;
+    border-style: solid;
+    border-color: black; 
 }
 
 .textSkinny {
-    width: 50%;
+    width: 43%;
 }
 
 .modalImage {
   position: absolute;
   border-radius: 15px;
   z-index: -1;
-  max-height: 50%;
+  height: 50%;
+  width: auto;
   max-width: 90%;
   top: 95%;
   left: 50%;
   transform: translate(-50%, -100%);
+  border-width: 0px;
+  border-style: solid;
+  border-color: black; 
 }
 
 .imgSkinny {
   max-height: 90%;
-  max-width: 45%;
+  height: auto;
+  width: 45%;
   top: 95%;
   left: 95%;
   transform: translate(-100%, -100%);
+}
+
+.imgWide { 
+    height: auto;
+    width: 90%
 }
