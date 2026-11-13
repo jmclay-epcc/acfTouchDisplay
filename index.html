@@ -222,7 +222,7 @@
             if ((modalImage.naturalWidth * 1.1) < modalImage.naturalHeight) { // Some of the images uses are so tall and skinny that displaying them in the usual way (with their height capped at 50% the modal height) makes them very tiny on the page.  So in these cases we flip the dimension constrants, clamping the width at 50% and capping the height at 90%, move the image to the right of the modal, and move the text to the left. Basically its what we do for the cells on the main page.   
               modalImage.classList.add("imgSkinny");
               modalText.classList.add("textSkinny"); // This method does have a hole in it - exceptionally skinny images can in theory become squashed vertically.  But i think this will be a rare occurance as the image would need to be more than twice as tall than it is wide.  In that case it would take up less than half of the tile and would look crap anyway.  
-            } else if ((modalText.offsetHeight) > (0.3 * modalBox.clientHeight)) { // This is a really disgustingly rough fix for system descriptions overlapping iamges.  basically it detects if the textbox drops below roughtly 50% of the modals height, and then shrinks the image roughly accordingly.  Its bad.  
+            } else if ((modalText.offsetHeight) > (0.28 * modalBox.clientHeight)) { // This is a really disgustingly rough fix for system descriptions overlapping iamges.  basically it detects if the textbox drops below roughtly 50% of the modals height, and then shrinks the image roughly accordingly.  Its bad.  
               newImgHeight = modalBox.clientHeight - modalText.offsetHeight - (modalBox.clientHeight * 0.25);
               modalImage.style.height = newImgHeight + "px";
             }
